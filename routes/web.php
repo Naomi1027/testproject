@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StockController;
+use App\Http\Controllers\ContactController;
 
 Route::get('/', function () {
     return view('welcome2');
@@ -20,14 +21,16 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/contact', 'ContactController@index')->name('index');
+//入力ページ
+Route::get('/contact', [ContactController::class, 'index'])->name('index');
 
 //確認ページ
-Route::post('/contact/confirm', 'ContactController@confirm')->name('confirm');
+Route::get('/confirm',[ContactController::class, 'confirm']);
+Route::post('/confirm',[ContactController::class, 'confirm'])->name('confirm');
 
 //送信完了ページ
-Route::post('/contact/thanks', 'ContactController@send')->name('send');
-
+Route::get('/thanks',[ContactController::class, 'send']);
+Route::post('/thanks',[ContactController::class, 'send'])->name('send');
 
 Route::middleware('auth')->group(function () {
     Route::get('/stocks', [StockController::class, 'index'])->name('stock.index');
