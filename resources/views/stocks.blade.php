@@ -8,7 +8,7 @@
                         <div class="mycart_box text-center rounded shadow-lg bg-white p-6">
                             {{$stock->name}} <br>
                             {{$stock->fee}}円<br>
-                            <img src="../public/img/{{$stock->imagePath}}" alt="" class="incart" >
+                            <img src="../storage/img/{{$stock->imagePath}}" alt="" class="incart" >
                             <br>
                             {{$stock->explain}} <br>
 
