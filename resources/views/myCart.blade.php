@@ -10,7 +10,7 @@
                         {{$stock->stock->name}} <br>                                
                         {{ number_format($stock->stock->fee)}}円 <br>
                             <div class="incart flex justify-center p-4 m-4">
-                            <img src="../public/img/{{$stock->stock->imagePath}}" alt=""  width="600">
+                            <img src="../storage/img/{{$stock->stock->imagePath}}" alt=""  width="600">
                             </div>
                             <form action="deleteMyCartStock" method="post">
                                 @csrf
