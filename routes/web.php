@@ -25,11 +25,11 @@ Route::get('/dashboard', function () {
 Route::get('/contact', [ContactController::class, 'index'])->name('index');
 
 //確認ページ
-Route::get('/confirm',[ContactController::class, 'confirm']);
+// Route::get('/confirm',[ContactController::class, 'confirm']);
 Route::post('/confirm',[ContactController::class, 'confirm'])->name('confirm');
 
 //送信完了ページ
-Route::get('/thanks',[ContactController::class, 'send']);
+// Route::get('/thanks',[ContactController::class, 'send']);
 Route::post('/thanks',[ContactController::class, 'send'])->name('send');
 
 Route::middleware('auth')->group(function () {
