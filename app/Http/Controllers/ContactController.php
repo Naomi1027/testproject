@@ -19,7 +19,7 @@ class ContactController extends Controller
         $request->validate([
             'name' => 'required',
              'email' => ['required','email'],
-             'content' => 'max:4000'
+             'content' => 'required'
          ]);
 
       $inputs = $request->all();
