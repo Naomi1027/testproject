@@ -13,8 +13,17 @@ return new class extends Migration
     {
         Schema::create('users_stocks', function (Blueprint $table) {
             $table->id();
-            $table->integer('stockId');
-            $table->integer('userId');
+
+            // $table->integer('stockId');
+            // stockIdに外部キー制約を追加
+            $table->unsignedBigInteger('stockId');
+            $table->foreign('stockId')->references('id')->on('stocks');
+
+            // $table->integer('userId');
+            // userIdに外部キー制約を追加
+            $table->unsignedBigInteger('userId');
+            $table->foreign('userId')->references('id')->on('users');
+
             $table->timestamps();
         });
     }
