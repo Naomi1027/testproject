@@ -19,7 +19,7 @@ class ContactController extends Controller
         $request->validate([
             'name' => 'required',
              'email' => ['required','email'],
-             'content' => 'max:4000'
+             'content' => 'required'
          ]);
 
       $inputs = $request->all();
@@ -54,8 +54,9 @@ class ContactController extends Controller
          $request->session()->regenerateToken(); //2回メール送信を防ぐため
 
          // 送信完了ページのviewを表示
-        return view('thanks',[
-            'inputs' => $inputs
-        ]);
+         return view('mail');
+        // return view('thanks',[
+        //     'inputs' => $inputs
+        // ]);
     }
 }
