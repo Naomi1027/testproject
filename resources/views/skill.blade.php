@@ -177,8 +177,9 @@
         </nav>
       </div>
 </div>
-    <!-- <button class="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Button</button> -->
-  </div>
 </section>
+<div class="m-10 text-center bg-gray-200">
+  <button type="button" onClick="history.back()" class="bg-blue-500 text-white px-4 py-2 rounded-full w-32 hover:bg-blue-700 transform scale-105 focus:outline-none">戻る</button>
+</div>
 </body>
 </html>

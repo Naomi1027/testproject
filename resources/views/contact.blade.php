@@ -59,7 +59,7 @@
           <a class="text-indigo-500">naomimotomura27@gmail.com</a>
           <p class="leading-normal my-5">
           </p>
-          <span class="inline-flex">
+          <!-- <span class="inline-flex">
             <a class="text-gray-500">
               <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
                 <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
@@ -81,10 +81,13 @@
                 <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path>
               </svg>
             </a>
-          </span>
+          </span> -->
         </div>
       </div>
     </div>
+  <div class="m-10 text-center bg-gray-200">
+    <button type="button" onClick="history.back()" class="bg-blue-500 text-white px-4 py-2 rounded-full w-32 hover:bg-blue-700 transform scale-105 focus:outline-none">戻る</button>
+  </div>
   </div>
 </section>
 </body>
