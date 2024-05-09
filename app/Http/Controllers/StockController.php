@@ -48,5 +48,58 @@ class StockController extends Controller
        return view('myCart',compact('myCartStocks' , 'message'));
 
    }
+   public function checkout(UserStock $userStock)
+   {
+    $userId = Auth::id();
+    $myCartStocks = UserStock::where('userId',$userId)->with('stock')->get();
+
+    $lineItems = [];
+    foreach($myCartStocks as $myCartStock){
+        $lineItem = [
+            'name' => $myCartStock->stock->name,
+            'description' => $myCartStock->stock->explain,
+            'amount' => $myCartStock->stock->fee,
+            'currency' => 'jpy',
+            'quantity' => 1
+        ];
+        array_push($lineItems, $lineItem);
+    }
+    // dd($lineItems);
+
+    \Stripe\Stripe::setApiKey(env('STRIPE_SECRET_KEY'));
+ 
+    $session = \Stripe\Checkout\Session::create([
+        'payment_method_types' => ['card'],
+        'line_items' => [[
+            'price_data' => [
+                'unit_amount' => $myCartStock->stock->fee,
+                'currency' => 'JPY',
+                'product_data' => [
+                    'name' => $myCartStock->stock->name,
+                    'description' => $myCartStock->stock->explain,
+            ],
+        ],
+            'quantity' => 1,
+        ]],
+        'mode' => 'payment',
+        'success_url' => route('stock.success'),
+        'cancel_url' => route('stock.myCart'),
+    ]);
+ 
+    $publicKey = env('STRIPE_PUBLIC_KEY');
+ 
+    return view(
+        'checkout',
+        compact('session', 'publicKey')
+    );
+   }
+
+   public function success()
+   {
+    $userId = Auth::id(); 
+    UserStock::where('userId', $userId)->delete();
+
+    return redirect()->route('stock.index');
+   }
 
 }

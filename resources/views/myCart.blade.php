@@ -19,10 +19,17 @@
                             </form>
                         </div>
                     @endforeach
+                    @if($myCartStocks->isNotEmpty())
+                        <div>
+                            <button onclick="location.href='{{ route('stock.checkout') }}'" class="bg-blue-400 hover:bg-blue-700 text-white font-bold py-2 px-4 m-2 rounded ">購入</button>
+                        </div>
+                    @endif
                     {{-- 追加 --}}  
                     @if($myCartStocks->isEmpty())
                        <p class="text-center">カートはからっぽです。</p>
                     @endif
+                    
+
                 </div>
             </div>
     </div>

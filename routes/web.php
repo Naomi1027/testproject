@@ -37,6 +37,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/myCart', [StockController::class, 'myCart'])->name('stock.myCart');
     Route::post('/addMyCart', [StockController::class, 'addMyCart'])->name('stock.addMyCart');
     Route::post('/deleteMyCartStock', [StockController::class, 'deleteMyCartStock'])->name('stock.deleteMyCartStock');
+    Route::get('/checkout', [StockController::class, 'checkout'])->name('stock.checkout');
+    Route::get('/success', [StockController::class, 'success'])->name('stock.success');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
